@@ -22,6 +22,14 @@ class Api::IncentivesController < ApplicationController
     render json: @incentive.to_json
   end
 
+  def redeem
+    @incentive = Incentive.find(params[:id])
+
+    @incentive.update_attribute :redeemed_at, DateTime.now
+
+    render json: @incentive.to_json
+  end
+
   def update
     @incentive = Incentive.find(params[:id])
 
