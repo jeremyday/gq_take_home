@@ -50,12 +50,14 @@ Prerequesites:
 2. Run `bundle exec rails db:create db:migrate`
 3. Run `yarn` to install the frontend dependencies
 4. Run `bundle exec rails test` to ensure the unit tests are passing
-5.  Run `bundle exec rails test:system` to ensure the system tests are passing
-6. In two different terminal tabs/windows. run:
-  1. `bundle exec rails s` to run the API
-  2. `./bin/webpack-dev-server` to build the frontend app
-7. Visit `http://localhost:3000` in your browser
-8. Pages `/setup` and `/redeem` are implemented in `app/javascript/components/ResearcherApp` and `CandidateApp` respectively
+5. Run `bundle exec rails test:system` to ensure the system tests are passing
+6. Run `foreman start -f Procfile.dev`
+7. If foreman doesn't work, do this:
+   1. In two different terminal tabs/windows. run:
+      1. `bundle exec rails s` to run the API
+      2. `./bin/webpack-dev-server` to build the frontend app
+8. Visit `http://localhost:3000` in your browser
+9. Pages `/setup` and `/redeem` are implemented in `app/javascript/components/ResearcherApp` and `CandidateApp` respectively
 
 
 ## Out of scope
