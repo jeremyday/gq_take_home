@@ -1,20 +1,39 @@
+function handleResponse(response) {
+  if(response.ok) {
+    return response.json();
+  }
+
+  return null;
+}
+
+export const createIncentive = async (params: Partial<Incentive>): Promise<Incentive[]> => {
+  const response = await fetch('/api/incentives/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(params)
+  });
+
+  return await handleResponse(response);
+};
 
 export const getIncentives = async (): Promise<Incentive[]> => {
-  const resp = await fetch('/api/incentives');
-  if (resp.ok) {
-    return await resp.json();
-  }
-  return null;
+  const response = await fetch('/api/incentives');
+
+  return await handleResponse(response);
+};
+
+export const newIncentive = async (): Promise<Incentive> => {
+  const response = await fetch('/api/incentives/new');
+
+  return await handleResponse(response);
 };
 
 export const updateIncentive = async (id: number, params: Partial<Incentive>): Promise<Incentive> => {
-  const resp = await fetch(`/api/incentives/${id}`, {
+  const response = await fetch(`/api/incentives/${id}`, {
     method: 'PUT',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(params),
   });
-  if (resp.ok) {
-    return await resp.json();
-  }
-  return null;
+
+  return await handleResponse(response);
 };
