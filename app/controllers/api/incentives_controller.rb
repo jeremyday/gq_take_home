@@ -7,8 +7,12 @@ class Api::IncentivesController < ApplicationController
   end
 
   def index
-    @incentives = Incentive.all
-    
+    @incentives = if params.key?(:unredeemed)
+                    @incentives = Incentive.where(redeemed_at: nil)
+                  else
+                    @incentives = Incentive.all
+                  end
+
     render json: @incentives.to_json
   end
 
