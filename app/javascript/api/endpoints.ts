@@ -29,6 +29,15 @@ export const newIncentive = async (): Promise<Incentive> => {
   return await handleResponse(response);
 };
 
+export const redeemIncentive = async (id: number): Promise<Incentive> => {
+  const response = await fetch(`/api/incentives/${id}/redeem`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  return await handleResponse(response);
+};
+
 export const updateIncentive = async (id: number, params: Partial<Incentive>): Promise<Incentive> => {
   const response = await fetch(`/api/incentives/${id}`, {
     method: 'PUT',
