@@ -28,10 +28,10 @@ For the candidate, they can visit `/redeem` to redeem a coupon code after the re
 
 Right now the app only supports a single coupon code. We want to extend the app to support multiple coupon codes, each of which is unique.
 
-- The researcher can visit `/setup` and add several coupon codes.
-- The candidate can visit `/redeem` and issue a unique code every time they click Redeem. 
-- Once redeemed, a coupon code must be marked as redeemed so that it cannot be used again. 
-- The researcher should be able to see which coupon codes have been redeemed, and add additional codes. 
+- [x] The researcher can visit `/setup` and add several coupon codes.
+- [x] The candidate can visit `/redeem` and issue a unique code every time they click Redeem. 
+- [x] Once redeemed, a coupon code must be marked as redeemed so that it cannot be used again. 
+- [x] The researcher should be able to see which coupon codes have been redeemed, and add additional codes. 
 
 Please fork this repository for your changes, and make clean git commits with your changes.
 
