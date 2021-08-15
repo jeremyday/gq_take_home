@@ -8,7 +8,7 @@ export const CandidateApp: React.FC = () => {
   const [data, setData] = useState<Incentive[]>(null);
 
   useEffect(() => {
-    getIncentives()
+    getIncentives(true)
       .then(incentives => {
         setData(incentives);
         setLoading(false);
@@ -16,12 +16,18 @@ export const CandidateApp: React.FC = () => {
   }, []);
 
   return (
-    <div className="px-12 py-6">
-      <h1 className="text-2xl font-bold mb-6">Redeem incentive</h1>
+    <>
+      <div className="px-12 py-6">
+        <a href="/" className="hover:bg-gray-100 bg-gray-200 rounded-md px-4 py-2">Back</a>
+      </div>
 
-      {loading && <span>Loading...</span>}
+      <div className="px-12 py-6">
+        <h1 className="text-2xl font-bold mb-6">Redeem Incentive</h1>
 
-      {!loading && <Redeem data={data} />}
-    </div>
+        {loading && <span>Loading...</span>}
+
+        {!loading && <Redeem data={data} />}
+      </div>
+    </>
   );
 };
