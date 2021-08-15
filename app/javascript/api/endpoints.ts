@@ -16,8 +16,9 @@ export const createIncentive = async (params: Partial<Incentive>): Promise<Incen
   return await handleResponse(response);
 };
 
-export const getIncentives = async (): Promise<Incentive[]> => {
-  const response = await fetch('/api/incentives');
+export const getIncentives = async (unredeemed = false): Promise<Incentive[]> => {
+  const parameters = unredeemed ? '?unredeemed=true' : ''
+  const response = await fetch(`/api/incentives${parameters}`);
 
   return await handleResponse(response);
 };
